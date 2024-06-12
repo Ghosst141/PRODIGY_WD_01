@@ -17,8 +17,6 @@ header {
     transition: 0.6s;
 }
 
-
-
 header a {
     text-decoration: none;
     color: white;
@@ -66,13 +64,14 @@ header.sticky {
 
 .container {
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     background-image: url(bg-hero.jpg);
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
     background-color: rgba(1, 15, 47, 0.7);
     background-blend-mode: darken;
+    padding-bottom: 70px;
 }
 
 .two-section {
@@ -134,7 +133,8 @@ header.sticky {
 
 .main-section {
     width: 100%;
-    height: 60vh;
+    /* height: 60vh; */
+    padding-block: 90px;
     display: flex;
 }
 
@@ -143,12 +143,13 @@ header.sticky {
     width: 90%;
     margin: 0 auto;
     align-items: center;
-    /* justify-content: space-between; */
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .sec {
-    width: 300px;
-    max-width: 100%;
+    width: 270px;
+    min-width: 270px;;
     margin: 0 10px;
     padding: 20px;
     box-shadow: -9px 15px 31px 0 rgba(0, 0, 0, .56);
@@ -171,9 +172,13 @@ header.sticky {
 }
 
 .about {
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
     width: 100%;
-    height: 80vh;
+    /* height: 80vh; */
     padding-top: 70px;
+    padding-bottom: 90px;
 }
 
 .about .row {
@@ -185,10 +190,13 @@ header.sticky {
 
 .about .image-col {
     width: 50%;
+    /* border: 1px solid red; */
 }
 
 .about .text-col {
     width: 50%;
+    /* border: 1px solid red; */
+
 }
 
 .about .image-gallery {
@@ -276,9 +284,10 @@ header.sticky {
 
 .menus {
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     background-color: rgb(248, 245, 245);
     padding-top: 70px;
+    padding-bottom: 90px;
 }
 
 .menus .heading {
@@ -334,8 +343,8 @@ header.sticky {
 
 .table {
     width: 100%;
-    height: 70vh;
-    padding-top: 50px;
+    background-color: #0f172b;
+    border: solid #0f172b;
 }
 
 .table .two-col {
@@ -350,14 +359,21 @@ header.sticky {
     background-size: cover;
 }
 
-.two-col .image-col img {
-    height: 100%;
-}
-
 .form-col {
     width: 100%;
     padding: 20px;
     background-color: #0f172b;
+    gap: 20px;
+}
+
+.form-col .inputs{
+    width: 100%;
+}
+
+.inputs .two-inputs{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .form-col h3 {
@@ -373,30 +389,31 @@ header.sticky {
 }
 
 .form-col input {
-    width: 100%;
-    max-width: 288.5px;
-    padding: 10px;
-    margin: 5px;
+    width: calc(100% / 2);
+    padding: 10px 5px;
+    margin: 5px 0px 5px 5px;
     font-size: 1rem;
 }
 
 .form-col textarea {
-    width: 100%;
-    max-width: 95%;
+    width: 99.25%;
+    /* max-width: 95%; */
     padding: 10px;
     font-size: 1rem;
     margin-left: 5px;
-
+    outline: none;
 }
 
 .form-col button {
-    width: 100%;
-    max-width: 95%;
+    width: 99.25%;
+    /* max-width: 95%; */
     margin-left: 5px;
+    margin-top: 3px;
     padding: 10px 20px;
     font-size: 1rem;
     font-weight: 700;
     background-color: #fea116;
+    /* border-radius: 8px; */
     border: none;
     outline: none;
 }
@@ -409,7 +426,7 @@ header.sticky {
 
 .footer {
     width: 100%;
-    height: 50vh;
+    /* height: 50vh; */
     background-color: #0f172b;
 }
 
@@ -509,4 +526,64 @@ header.sticky {
         font-size: 2rem;
     }
 
+}
+
+
+@media (max-width:760px){
+    .about .row{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+    .row .image-col,.row .text-col{
+        width: 100%;
+        margin: 10px auto;
+    }
+    .row .text-col{
+        padding: 20px;
+    }
+    .row .text-col p{
+        text-align: justify;
+    }
+    .about .image-col{
+        display: flex;
+        flex-wrap: wrap;
+        /* justify-content: center;
+        align-items: center; */
+        padding: 10px;
+    }
+
+    .menus .two-section{
+        flex-direction: column;
+        padding-block: 20px;
+    }
+    .two-section .section{
+        padding-block: 0;
+    }
+
+    .inputs .two-inputs{
+        flex-direction: column;
+    }
+    .inputs .two-inputs input{
+        width: 100%;
+    }
+
+    .form-col textarea{
+        width: 100%;
+    }
+    .form-col button{
+        width: 100%;
+    }
+
+    .table .two-col{
+        flex-direction: column;
+    }
+    .footer .three-col{
+        flex-direction: column;
+    }
+
+    .footer .three-col .col{
+        border-top: 2px solid #13253a;
+        padding-block: 20px;
+    }
 }
